@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+.top{background:#000;color:#aaa;text-align:center;padding:12px;font-size:13px}
+.top b{color:#fff;text-decoration:underline;margin-left:6px}
+.header{display:flex;align-items:center;justify-content:space-between;padding:20px 70px;border-bottom:1px solid #eee}
+.logo{font-size:26px;font-weight:900}
+nav a{margin:0 15px;text-decoration:none;color:#000}
+nav a.active{border-bottom:2px solid #000;padding-bottom:3px}
+.search{display:flex;align-items:center;gap:15px}
+.search input{background:#F5F5F5;border:none;padding:10px 15px;width:250px;border-radius:4px}
+.container{display:flex}
+.sidebar{width:260px;border-right:1px solid #eee;padding:25px 0 0 70px}
+.sidebar p{padding:12px 0;font-size:14px;display:flex;justify-content:space-between}
+.banner-wrap{flex:1;padding:35px 70px 0 30px;}
+.banner{background:#000;color:#fff;display:flex;justify-content:space-between;align-items:center;width:100% !important;min-width:100% !important;height:344px;padding-left:45px;overflow:hidden;margin:0 !important;}
+.left h2{font-size:16px;font-weight:400;margin-bottom:20px}
+.left h1{font-size:50px;line-height:1.1;margin-bottom:25px}
+.left a{color:#fff;text-decoration:none;border-bottom:1px solid #fff;padding-bottom:4px}
+.right{width:55%;height:100%}
+.right img{width:100%;height:100%;object-fit:cover;object-position:right}
+.dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+.dot{width:10px;height:10px;background:#777;border-radius:50%;cursor:pointer}
+.dot.active{background:#DB4444;border:2px solid #fff;width:14px;height:14px}
+.products{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:20px !important;
+  overflow-x:auto !important;
+}
+.products .card{
+  flex:0 0 250px !important;
+  min-width:250px !important;
+}
+.banner{
+  width:75% !important;
+  flex:1 !important;
+  margin-left:auto !important;
+}
+div:has(.banner){
+  display:flex !important;
+  gap:20px !important;
+  justify-content:flex-start !important;
+  align-items:flex-start !important;
+}
+.categories, .sidebar, [class*="category"]{
+  flex:0 0 210px !important;
+  min-width:210px !important;
+}
+.banner{
+  width:100% !important;
+  flex:1 !important;
+  margin:0 !important;
+}
+</style>
+</head>
+<body>
+
+<div class="top">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%! <b>ShopNow</b></div>
+
+<div class="header">
+<div class="logo">Exclusive</div>
+<nav>
+<a href="#" class="active">Home</a>
+<a href="contact.html">Contact</a>
+<a href="#">About</a>
+<a href="signup.html">Sign Up</a>
+</nav>
+<div class="search">
+<input placeholder="What are you looking for?">
+<span>♡ 🛒</span>
+</div>
+</div>
+
+<div class="container">
+<div class="sidebar">
+<p>Woman's Fashion <span>></span></p>
+<p>Men's Fashion <span>></span></p>
+<p>Electronics</p>
+<p>Home & Lifestyle</p>
+<p>Medicine</p>
+<p>Sports & Outdoor</p>
+<p>Baby's & Toys</p>
+<p>Groceries & Pets</p>
+<p>Health & Beauty</p>
+</div>
+
+<div class="banner-wrap">
+<div class="banner">
+<div class="left">
+<h2 id="seriesText"> iPhone 14 Series</h2>
+<h1 id="mainHeading">Up to 10%<br>off Voucher</h1>
+<a href="card.html">Shop Now →</a>
+</div>
+<div class="right">
+<img id="slideImg" src="iphone14-black.jpg" alt="banner">
+</div>
+<div class="dots" id="dots"></div>
+</div>
+</div>
+</div>
+<script>
+const slides=[
+{series:"iPhone 14",heading:"Up to 10%<br>off Voucher",img:"iphone14-black.jpg"},
+{series:"iPhone 14 Plus",heading:"Up to 10%<br>off Voucher",img:"iphone14-blue.jpg"},
+{series:"iPhone 14 Pro Max",heading:"Up to 10%<br>off Voucher",img:"iphone14-gold.jpg"}
+];
+const dots=document.getElementById('dots');
+let cur=0;
+slides.forEach((_,i)=>{
+const d=document.createElement('div');
+d.className='dot'+(i==0?' active':'');
+d.onclick=()=>{cur=i;update();};
+dots.appendChild(d);
+});
+function update(){
+document.getElementById('seriesText').textContent=slides[cur].series;
+document.getElementById('mainHeading').innerHTML=slides[cur].heading;
+document.getElementById('slideImg').src=slides[cur].img;
+document.querySelectorAll('.dot').forEach((e,j)=>e.classList.toggle('active',j==cur));
+}
+setInterval(()=>{cur=(cur+1)%slides.length;update();},3000);
+</script>
+<!-- FLASH SALES SECTION -->
+<div style="margin:60px 80px; font-family:Arial;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <div style="width:20px; height:40px; background:#DB4444; border-radius:4px;"></div>
+    <p style="color:#DB4444; font-weight:bold;">Today's</p>
+  </div>
+  <div style="display:flex; align-items:center; gap:80px; margin-top:10px;">
+    <h1 style="font-size:36px; margin:0;">Flash Sales</h1>
+    <div style="display:flex; gap:15px; font-weight:bold;">
+      <div>Days<br><span style="font-size:28px;">03</span></div><span style="color:#DB4444; font-size:28px;">:</span>
+      <div>Hours<br><span style="font-size:28px;">23</span></div><span style="color:#DB4444; font-size:28px;">:</span>
+      <div>Minutes<br><span style="font-size:28px;">19</span></div><span style="color:#DB4444; font-size:28px;">:</span>
+      <div>Seconds<br><span style="font-size:28px;">56</span></div>
+    </div>
+  </div>
+  <div style="display:flex; gap:25px; margin-top:40px; overflow-x:auto;">
+    <!-- Card 1 -->
+    <div style="min-width:250px; background:#F5F5F5; padding:15px; border-radius:4px; position:relative;">
+      <span style="background:#DB4444; color:white; padding:4px 10px; border-radius:4px; font-size:12px;">-40%</span>
+      <img src="gamepad.jpg" style="width:100%; height:180px; object-fit:contain; margin-top:10px;">
+      <p style="background:white; margin-top:10px;">HAVIT HV-G92 Gamepad</p>
+      <p><span style="color:#DB4444;">$120</span> <s style="color:gray;">$160</s></p>
+      <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(88)</span></p>
+    </div>
+    <!-- Card 2 -->
+    <div style="min-width:250px; background:#F5F5F5; padding:15px; border-radius:4px; position:relative;">
+      <span style="background:#DB4444; color:white; padding:4px 10px; border-radius:4px; font-size:12px;">-35%</span>
+      <img src="keyboard.jpg" style="width:100%; height:180px; object-fit:contain; margin-top:10px;">
+      <div style="background:black; color:white; text-align:center; padding:8px; margin:10px -15px;">Add To Cart</div>
+      <p>AK-900 Wired Keyboard</p>
+      <p><span style="color:#DB4444;">$960</span> <s style="color:gray;">$1160</s></p>
+      <p style="color:#FFAD33;">★★★★☆ <span style="color:gray;">(75)</span></p>
+    </div>
+    <!-- Card 3 -->
+    <div style="min-width:250px; background:#F5F5F5; padding:15px; border-radius:4px; position:relative;">
+      <span style="background:#DB4444; color:white; padding:4px 10px; border-radius:4px; font-size:12px;">-30%</span>
+      <img src="monitor.jpg" style="width:100%; height:180px; object-fit:contain; margin-top:10px;">
+      <p>IPS LCD Gaming Monitor</p>
+      <p><span style="color:#DB4444;">$370</span> <s style="color:gray;">$400</s></p>
+      <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(99)</span></p>
+    </div>
+    <!-- Card 4 -->
+    <div style="min-width:250px; background:#F5F5F5; padding:15px; border-radius:4px; position:relative;">
+      <span style="background:#DB4444; color:white; padding:4px 10px; border-radius:4px; font-size:12px;">-25%</span>
+      <img src="chair.jpg" style="width:100%; height:180px; object-fit:contain; margin-top:10px;">
+      <p>S-Series Comfort Chair</p>
+      <p><span style="color:#DB4444;">$375</span> <s style="color:gray;">$400</s></p>
+      <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(99)</span></p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <button style="background:#DB4444; color:white; padding:12px 40px; border:none; border-radius:4px; cursor:pointer;">View All Products</button>
+  </div>
+</div>
+<!-- CATEGORIES + BEST SELLING HEADER -->
+<div style="margin:80px 80px 0 80px; font-family:Arial; border-top:1px solid #eee; padding-top:60px;">
+  <!-- Header -->
+  <div style="display:flex; align-items:center; gap:10px;">
+    <div style="width:20px; height:40px; background:#DB4444; border-radius:4px;"></div>
+    <p style="color:#DB4444; font-weight:bold;">This Month</p>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+    <h1 style="font-size:36px; margin:0;">Best Selling Products</h1>
+    <button style="background:#DB4444; color:white; padding:12px 40px; border:none; border-radius:4px; cursor:pointer;">View All</button>
+  </div>
+  <!-- Category Icons -->
+  <div style="display:flex; gap:20px; margin-top:40px; overflow-x:auto;">
+    <div style="min-width:150px; height:130px; border:1px solid #ddd; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:4px; cursor:pointer;">
+      <div style="font-size:36px;">📱</div>
+      <p>Phones</p>
+    </div>
+    
+    <div style="min-width:150px; height:130px; border:1px solid #ddd; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:4px; cursor:pointer;">
+      <div style="font-size:36px;">🖥️</div>
+      <p>Computers</p>
+    </div>
+    <div style="min-width:150px; height:130px; border:1px solid #ddd; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:4px; cursor:pointer;">
+      <div style="font-size:36px;">⌚</div>
+      <p>SmartWatch</p>
+    </div>
+    <div style="min-width:150px; height:130px; background:#DB4444; color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:4px; cursor:pointer;">
+      <div style="font-size:36px;">📷</div>
+      <p>Camera</p>
+    </div>
+    <div style="min-width:150px; height:130px; border:1px solid #ddd; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:4px; cursor:pointer;">
+      <div style="font-size:36px;">🎧</div>
+      <p>HeadPhones</p>
+    </div>
+    <div style="min-width:150px; height:130px; border:1px solid #ddd; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:4px; cursor:pointer;">
+      <div style="font-size:36px;">🎮</div>
+      <p>Gaming</p>
+    </div>
+  </div>
+</div>
+<!-- BROWSE BY CATEGORY - PRODUCTS -->
+<div style="margin:40px 80px; font-family:Arial;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <div style="width:20px; height:40px; background:#DB4444; border-radius:4px;"></div>
+    <p style="color:#DB4444; font-weight:bold;">Categories</p>
+  </div>
+  <h1 style="font-size:36px;">Browse By Category</h1>
+  
+  
+    <!-- Product 2 -->
+  <div style="display:flex; gap:25px; margin-top:30px; overflow-x:auto; flex-wrap:nowrap; padding-bottom:20px;">
+  <!-- Product 1 -->
+  <div style="min-width:260px; background:#F5F5F5; border-radius:4px; padding:15px;">
+    <div style="text-align:right;">🤍 👁️</div>
+    <img src="north-coat.jpg" style="width:100%; height:180px; object-fit:contain;">
+    <p style="margin-top:20px; font-weight:bold;">The north coat</p>
+    <p><span style="color:#DB4444;">$260</span> <s style="color:gray;">$360</s></p>
+    <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(65)</span></p>
+  </div>
+
+  <!-- Product 2 -->
+  <div style="min-width:300px; background:#F5F5F5; border-radius:4px; padding:15px;">
+    <div style="text-align:right;">🤍 👁️</div>
+    <img src="gucci-bag.jpg" style="width:100%; height:180px; object-fit:contain;">
+    <p style="margin-top:20px; font-weight:bold;">Gucci duffle bag</p>
+    <p><span style="color:#DB4444;">$960</span> <s style="color:gray;">$1160</s></p>
+    <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(65)</span></p>
+  </div>
+
+  <!-- Product 3 -->
+  <div style="min-width:300px; background:#F5F5F5; border-radius:4px; padding:15px;">
+    <div style="text-align:right;">🤍 👁️</div>
+    <img src="cpu-cooler.jpg" style="width:100%; height:180px; object-fit:contain;">
+    <p style="margin-top:20px; font-weight:bold;">RGB liquid CPU Cooler</p>
+    <p><span style="color:#DB4444;">$160</span> <s style="color:gray;">$170</s></p>
+    <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(65)</span></p>
+  </div>
+  <div style="min-width:260px; background:#F5F5F5; border-radius:4px; padding:15px;">
+  <div style="text-align:right;">♡ 👁</div>
+  <img src="bookself.jpg" style="width:100%; height:180px; object-fit:contain;">
+  <p style="margin-top:20px; font-weight:bold;">Small BookSelf</p>
+  <p><span style="color:#DB4444;">$360</span></p>
+  <p style="color:#FFAD33;">★★★★★ <span style="color:gray;">(65)</span></p>
+
+  </div>
+</div>
+<!-- ENHANCE YOUR MUSIC EXPERIENCE - JBL BANNER -->
+<div style="margin:80px; background: radial-gradient(black, #1a1a1a); display:flex; justify-content:space-between; align-items:center; padding:40px 60px; border-radius:4px; font-family:Arial;">
+  <div>
+    <p style="color:#00FF66; font-weight:bold;">Categories</p>
+    <h1 style="color:white; font-size:48px; line-height:60px; margin:20px 0;">Enhance Your<br>Music Experience</h1>
+    
+    <div style="display:flex; gap:15px; margin:30px 0;">
+      <div style="width:62px; height:62px; background:white; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:12px;"><b>23</b>Hours</div>
+      <div style="width:62px; height:62px; background:white; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:12px;"><b>05</b>Days</div>
+      <div style="width:62px; height:62px; background:white; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:12px;"><b>59</b>Minutes</div>
+      <div style="width:62px; height:62px; background:white; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:12px;"><b>35</b>Seconds</div>
+    </div>
+
+    <button style="background:#00FF66; color:white; border:none; padding:16px 48px; border-radius:4px; font-size:16px; font-weight:bold; cursor:pointer; margin-top:10px;">Buy Now!</button>
+  </div>
+
+  <div>
+    <img src="jbl-speaker.jpg" style="width:550px; filter:drop-shadow(0 0 40px rgba(255,255,255,0.3));">
+  </div>
+</div>
+<!-- Explore Our Products Section -->
+<section style="padding: 40px 80px; background: #fff; font-family: Poppins, sans-serif;">
+  <p style="color: #DB4444; font-weight: 600; margin-bottom: 8px;">● Our Products</p>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+    <h2 style="font-size:32px; font-weight:600; margin:0;">Explore Our Products</h2>
+    <div style="display:flex; gap:10px;">
+      <button style="width:46px; height:46px; border-radius:50%; border:none; background:#F5F5F5; cursor:pointer;">←</button>
+      <button style="width:46px; height:46px; border-radius:50%; border:none; background:#F5F5F5; cursor:pointer;">→</button>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:25px;">
+    
+    <!-- 1. Cesar Dog Food -->
+    <div>
+      <div style="background:#F5F5F5; border-radius:4px; height:250px; display:flex; align-items:center; justify-content:center; position:relative;">
+        <span style="position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:8px;">
+          <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">♡</span>
+          <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">👁</span>
+        </span>
+        <img src="dog-food.jpg" style="width: 200px;px;; object-fit:contain;">
+      </div>
+      <h4 style="margin:15px 0 5px; font-size:16px;">Breed Dry Dog Food</h4>
+      <p style="margin:0; color:#DB4444; font-weight:600;">$100 <span style="color:#FFAD33;">★★★</span><span style="color:#ccc;">★★</span> <span style="color:#777; font-weight:400;">(35)</span></p>
+    </div>
+
+    <!-- 2. Canon Camera -->
+    <div>
+      <div style="background:#F5F5F5; border-radius:4px; height:250px; display:flex; align-items:center; justify-content:center; position:relative;">
+        <span style="position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:8px;">
+          <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">♡</span>
+          <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">👁</span>
+        </span>
+        <img src="canon.jpg" style="width: 180px;px; object-fit:contain;">
+        <button style="position:absolute; bottom:0; left:0; right:0; background:#000; color:#fff; border:none; padding:10px; border-radius:0 0 4px 4px; cursor:pointer;">Add To Cart</button>
+      </div>
+      <h4 style="margin:15px 0 5px; font-size:16px;">CANON EOS DSLR Camera</h4>
+      <p style="margin:0; color:#DB4444; font-weight:600;">$360 <span style="color:#FFAD33;">★★★★</span><span style="color:#ccc;">★</span> <span style="color:#777; font-weight:400;">(95)</span></p>
+    </div>
+
+    <!-- 3. ASUS Laptop -->
+    <div>
+      <div style="background:#F5F5F5; border-radius:4px; height:250px; display:flex; align-items:center; justify-content:center; position:relative;">
+        <span style="position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:8px;">
+          <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">♡</span>
+          <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">👁</span>
+        </span>
+        <img src="laptop.jpg" style="width:170px; object-fit:contain;">
+      </div>
+      <h4 style="margin:15px 0 5px; font-size:16px;">ASUS FHD Gaming Laptop</h4>
+      <p style="margin:0; color:#DB4444; font-weight:600;">$700 <span style="color:#FFAD33;">★★★★★</span> <span style="color:#777; font-weight:400;">(325)</span></p>
+    </div>
+
+ <!-- 4. Curology Product Set -->
+<div>
+  <div style="background:#F5F5F5; border-radius:4px; height:250px; display:flex; align-items:center; justify-content:center; position:relative;">
+    <span style="position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:8px;">
+      <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">♡</span>
+      <span style="background:#fff; width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;">👁</span>
+    </span>
+    <img src="curology.jpg" style="width:160px; object-fit:contain;">
+  </div>
+  <h4 style="margin:15px 0 5px; font-size:16px;">Curology Product Set</h4>
+  <p style="margin:0; color:#DB4444; font-weight:600;">$500 <span style="color:#FFAD33;">★★★★</span><span style="color:#ccc;">★</span> <span style="color:#777; font-weight:400;">(145)</span></p>
+</div>
+
+<!-- MORE PRODUCTS ROW 2 -->
+<div style="display:flex; gap:30px; overflow-x:auto; padding:0 6% 40px 6%; background:#fff; font-family:sans-serif;">
+</div>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products</title>
+<style>
+body { font-family: Arial, sans-serif; background: #fff; margin: 20px; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.card { background: #f5f7fa; border-radius: 8px; padding: 15px; position: relative; }
+.badge { background: #00ff66; color: #fff; font-size: 12px; padding: 4px 8px; border-radius: 4px; position: absolute; top: 10px; left: 10px; }
+.icons { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 8px; }
+.icon { background: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.card img { width: 100%; height: 200px; object-fit: contain; }
+.title { font-weight: bold; margin-top: 15px; font-size: 16px; }
+.price { color: #e85d75; font-weight: bold; margin-top: 5px; }
+.stars { color: #f9b233; }
+.color-dot { width: 18px; height: 18px; border-radius: 50%; display: inline-block; margin-right: 5px; border: 2px solid #000; }
+.btn-wrap { text-align: center; margin-top: 30px; }
+.btn { background: #e85d75; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+</style>
+</head>
+<body>
+<div class="products">
+  <div>
+    <div class="card">
+      <span class="badge">NEW</span>
+      <div class="icons"><div class="icon">♡</div><div class="icon">👁</div></div>
+      <img src="kids-car.jpg" alt="Kids Electric Car">
+    </div>
+    <div class="title">Kids Electric Car</div>
+    <div><span class="price">$960</span> <span class="stars">★★★★★</span> (65)</div>
+    <div style="margin-top:5px;"><span class="color-dot" style="background:red"></span><span class="color-dot" style="background:darkred; border:none"></span></div>
+  </div>
+  <div>
+    <div class="card">
+      <div class="icons"><div class="icon">♡</div><div class="icon">👁</div></div>
+      <img src="cleats.jpg" alt="Soccer Cleats">
+    </div>
+    <div class="title">Jr. Zoom Soccer Cleats</div>
+    <div><span class="price">$1160</span> <span class="stars">★★★★★</span> (35)</div>
+    <div style="margin-top:5px;"><span class="color-dot" style="background:yellow"></span><span class="color-dot" style="background:#ff6b8a; border:none"></span></div>
+  </div>
+  <div>
+    <div class="card">
+      <span class="badge">NEW</span>
+      <div class="icons"><div class="icon">♡</div><div class="icon">👁</div></div>
+      <img src="gamepad.jpg" alt="Gamepad">
+    </div>
+    <div class="title">GP11 Shooter USB Gamepad</div>
+    <div><span class="price">$660</span> <span class="stars">★★★★☆</span> (55)</div>
+    <div style="margin-top:5px;"><span class="color-dot" style="background:black"></span><span class="color-dot" style="background:#ff6b8a; border:none"></span></div>
+  </div>
+  <div>
+    <div class="card">
+      <span class="badge">NEW</span>
+      <div class="icons"><div class="icon">♡</div><div class="icon">👁</div></div>
+      <img src="jacket.jpg" alt="Jacket">
+    </div>
+    <div class="title">Quilted Satin Jacket</div>
+    <div><span class="price">$660</span> <span class="stars">★★★★☆</span> (55)</div>
+    <div style="margin-top:5px;"><span class="color-dot" style="background:#004466"></span><span class="color-dot" style="background:#ff6b8a; border:none"></span></div>
+  </div>
+</div>
+<div class="btn-wrap">
+  <button class="btn">View All Products</button>
+</div>
+</body>
+</html>
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop</title>
+<style>
+body{font-family:Arial,sans-serif;background:#fff;margin:30px;}
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.card{background:#f5f7fa;border-radius:8px;padding:15px;position:relative;}
+.badge{background:#00ff66;color:#fff;font-size:12px;padding:4px 8px;border-radius:4px;position:absolute;top:10px;left:10px;}
+.icons{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:8px;}
+.icon{background:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.card img{width:100%;height:200px;object-fit:contain;}
+.title{font-weight:bold;margin-top:15px;font-size:16px;}
+.price{color:#e85d75;font-weight:bold;margin-top:5px;}
+.stars{color:#f9b233;}
+.color-dot{width:18px;height:18px;border-radius:50%;display:inline-block;margin-right:5px;border:2px solid #000;}
+.btn-wrap{text-align:center;margin-top:30px;margin-bottom:80px;}
+.btn{background:#e85d75;color:white;padding:12px 30px;border:none;border-radius:5px;cursor:pointer;font-size:16px;}
+/* NEW ARRIVAL */
+.featured{display:flex;align-items:center;gap:10px;color:#DB4444;font-weight:bold;font-size:14px;}
+.featured span{width:20px;height:40px;background:#DB4444;display:inline-block;border-radius:4px;}
+.new-title{font-size:36px;font-weight:bold;margin:15px 0 30px 0;letter-spacing:1px;}
+.container{display:grid;grid-template-columns:1fr 1fr;gap:30px;height:600px;}
+.left-card{position:relative;background:#000;border-radius:4px;overflow:hidden;padding:30px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;}
+.left-card img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:85%;height:90%;object-fit:contain;}
+.left-content{position:relative;z-index:2;max-width:250px;}
+.right{display:grid;grid-template-rows:1fr 1fr;gap:30px;height:100%;}
+.right-top{position:relative;background:#000;border-radius:4px;overflow:hidden;padding:30px;color:#fff;display:flex;align-items:center;}
+.right-top img{position:absolute;right:0;top:0;width:60%;height:100%;object-fit:cover;}
+.right-top-content{position:relative;z-index:2;max-width:250px;}
+.right-bottom{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.small-card{position:relative;background:#0D0D0D;border-radius:4px;padding:20px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;min-height:270px;}
+.small-card img{position:absolute;top:50%;left:50%;transform:translate(-50%,-45%);width:70%;object-fit:contain;}
+.small-content{position:relative;z-index:2;}
+h2{margin:0 0 10px 0;font-size:24px;}
+p{margin:0;font-size:14px;opacity:0.8;line-height:18px;}
+.shop-btn{margin-top:15px;display:inline-block;color:#fff;text-decoration:none;border-bottom:1px solid #fff;padding-bottom:3px;font-size:16px;font-weight:500;}
+</style>
+</head>
+<body>
+<!-- NEW ARRIVAL - COPY FROM HERE -->
+<div style="margin:40px 80px; font-family:Arial, sans-serif;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <span style="width:20px; height:40px; background:#DB4444; border-radius:4px; display:inline-block;"></span>
+    <b style="color:#DB4444; font-size:14px;">Featured</b>
+  </div>
+  <h1 style="font-size:36px; margin:15px 0 30px 0; font-weight:600;">New Arrival</h1>
+
+  <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:30px; height:600px;">
+    <!-- LEFT PS5 -->
+    <div style="position:relative; background:#000; border-radius:4px; overflow:hidden;">
+      <img src="ps5.jpg" style="width:100%; height:100%; object-fit:cover;">
+      <div style="position:absolute; bottom:30px; left:30px; color:#fff; max-width:260px;">
+        <h2 style="margin:0 0 8px 0;">PlayStation 5</h2>
+        <p style="margin:0 0 12px 0; font-size:13px; opacity:0.8;">Black and White version of the PS5 coming out on sale.</p>
+        <a href="#" style="color:#fff; text-decoration:none; border-bottom:1px solid #fff; padding-bottom:2px; font-size:14px;">Shop Now</a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div style="display:grid; grid-template-rows:1fr 1fr; gap:30px;">
+      <div style="position:relative; background:#0D0D0D; border-radius:4px; overflow:hidden;">
+        <img src="women.jpg" style="position:absolute; right:0; width:50%; height:100%; object-fit:cover;">
+        <div style="position:absolute; left:30px; top:50%; transform:translateY(-50%); color:#fff; max-width:240px;">
+          <h2 style="margin:0 0 8px 0;">Women's Collections</h2>
+          <p style="margin:0 0 12px 0; font-size:13px; opacity:0.8;">Featured woman collections that give you another vibe.</p>
+          <a href="#" style="color:#fff; text-decoration:none; border-bottom:1px solid #fff; padding-bottom:2px; font-size:14px;">Shop Now</a>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+        <div style="position:relative; background:#0D0D0D; border-radius:4px; overflow:hidden;">
+          <img src="speaker.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.9;">
+          <div style="position:absolute; bottom:20px; left:20px; color:#fff;">
+            <h3 style="margin:0 0 5px 0;">Speakers</h3>
+            <p style="margin:0 0 8px 0; font-size:12px; opacity:0.8;">Amazon wireless speakers</p>
+            <a href="#" style="color:#fff; text-decoration:none; border-bottom:1px solid #fff; font-size:13px;">Shop Now</a>
+          </div>
+        </div>
+        <div style="position:relative; background:#0D0D0D; border-radius:4px; overflow:hidden;">
+          <img src="perfume.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.9;">
+          <div style="position:absolute; bottom:20px; left:20px; color:#fff;">
+            <h3 style="margin:0 0 5px 0;">Perfume</h3>
+            <p style="margin:0 0 8px 0; font-size:11px; opacity:0.8;">GUCCI INTENSE OUD EDP</p>
+            <a href="#" style="color:#fff; text-decoration:none; border-bottom:1px solid #fff; font-size:13px;">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- COPY TILL HERE -->
+ <!-- FOOTER WITH QR IN CODE - COPY THIS WHOLE PART -->
+<div style="background:#000; color:#fff; padding:60px 80px 20px 80px; font-family:Arial;">
+  <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:40px;">
+    <div><h2 style="margin:0 0 15px 0;">Exclusive</h2><h3 style="margin:0 0 15px 0;">Subscribe</h3><p style="font-size:13px; opacity:0.8;">Get 10% off your first order</p><div style="border:1px solid #fff; border-radius:4px; width:190px; padding:8px 10px; display:flex;"><input placeholder="Enter your email" style="background:transparent; border:none; color:#fff; outline:none; width:100%; font-size:12px;"><span>➤</span></div></div>
+    <div><h3>Support</h3><p style="font-size:13px; opacity:0.8;">111 Bijoy sarani, Dhaka,<br>DH 1515, Bangladesh.</p><p style="font-size:13px; opacity:0.8;">exclusive@gmail.com<br><br>+88015-88888-9999</p><span style="font-size:20px;">👋</span></div>
+    <div><h3>Account</h3><p style="font-size:13px; opacity:0.8;">My Account<br><br>Login / Register<br><br>Cart<br><br>Wishlist<br><br>Shop</p></div>
+    <div><h3>Quick Link</h3><p style="font-size:13px; opacity:0.8;">Privacy Policy<br><br>Terms Of Use<br><br>FAQ<br><br>Contact</p></div>
+    <div><h3>Download App</h3><p style="font-size:10px; opacity:0.6;">Save $3 with App New User Only</p><div style="display:flex; gap:10px;">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAIAAAD2HxkiAAAFDklEQVR4nO3dQZLaSABFQePw/a/c3sJGoEalp1JlbieQPUbPXYR+4MfPz88foPO3/g3A6kQIMRFCTIQQEyHERAgxEUJMhBATIcT+bf/nx+Nxzu/jTBsjoY3/37fTIq895LXz+vX4zE9CiIkQYiKEmAghJkKIiRBiIoSYCCH22H7C6KEqI7ivnr1ZzAz6VUcb9B5fcF9y2dd+Y7X7ynEUYiKEmAghJkKIi
